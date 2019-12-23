@@ -9,14 +9,14 @@ window.onload = () => {
         imgElement.src = URL.createObjectURL(event.target.files[0]);
     };
 
-    imgElement.onload = function() {
+    imgElement.onload = () => {
         let image = cv.imread(imgElement);
         cv.imshow('imageCanvas', image);
         image.delete();
     };
 
     // circle detection & drawing code 
-    document.getElementById('circlesButton').onclick = function() {
+    document.getElementById('circlesButton').onclick = () => {
         this.disabled = true;
         document.body.classList.add("loading");
         
@@ -54,7 +54,7 @@ window.onload = () => {
         document.body.classList.remove("loading");
     };
 
-    document.getElementById('downloadButton').onclick = function() {
+    document.getElementById('downloadButton').onclick = () => {
         this.href = document.getElementById("imageCanvas").toDataURL();
         this.download = "image.png";
     };
